@@ -1,102 +1,75 @@
-This is a great idea for a GitHub `README.md` file\\! I've combined the information from both documents into a structured summary for your Week 2 work.
+# Week 2: BabySoC Fundamentals & Functional Modelling
 
+## Objective
+[cite_start]The core objective for Week 2 was twofold: to establish a solid theoretical understanding of **System-on-Chip (SoC)** fundamentals [cite: 33, 34, 1, 3] [cite_start]and to gain practical experience in **functional modelling** of the **BabySoC** using simulation tools (Icarus Verilog & GTKWave)[cite: 34, 4, 9, 12].
 
-
-Here is the markdown code for your \*\*`WEEK2-README.md`\*\*:
-
-
-
-```markdown
-
-\# Week 2: BabySoC Fundamentals \& Functional Modelling
-
-
-
-\## Objective
-
-\[cite\_start]The primary goal for Week 2 was to establish a strong foundational understanding of \*\*System-on-Chip (SoC)\*\* fundamentals and to gain practical experience in \*\*functional modelling\*\* of the \*\*BabySoC\*\* using simulation tools\[cite: 17, 18, 2, 3].
-
-
-
-\[cite\_start]By the end of this week, the aim was to be able to explain the theory behind SoC design and demonstrate the BabySoC's functional modelling using simulation waveforms\[cite: 45].
-
-
+[cite_start]By the end of the week, the goal was to be able to explain SoC theory and demonstrate the BabySoC's correct functional behavior through simulation waveforms[cite: 31].
 
 ---
 
+## Part 1: Theory (Conceptual Understanding)
 
+[cite_start]This part involved going through the fundamentals of SoC design notes [cite: 36] to build a strong theoretical foundation.
 
-\## Part 1: Theory (Conceptual Understanding)
+### Key Conceptual Areas:
+* [cite_start]**What is an SoC?** Answering the fundamental question of what a System-on-Chip is[cite: 39].
+* [cite_start]**Components:** Understanding the essential components of a typical SoC (CPU, memory, peripherals, and interconnect)[cite: 40].
+* [cite_start]**The BabySoC Model:** Explaining why BabySoC serves as a simplified model for learning core SoC concepts[cite: 43].
+* [cite_start]**Functional Modelling:** Recognizing the critical role of functional modelling as a verification step **before** moving to the Register-Transfer Level (RTL) and physical design stages[cite: 44].
 
+### Deliverable:
+* [cite_start]A 1-2 page write-up on GitHub summarizing the understanding of SoC design fundamentals and how BabySoC fits into the learning journey[cite: 45].
 
-
-\[cite\_start]This part focused on building a solid theoretical background on SoC design by reviewing core concepts\[cite: 4, 5].
-
-
-
-\### Focus Areas:
-
-\* \[cite\_start]\*\*What is an SoC?\*\* Answering the fundamental question of what a System-on-Chip is\[cite: 8].
-
-\* \[cite\_start]\*\*SoC Components:\*\* Identifying the key components that make up a typical SoC, such as the CPU, memory, peripherals, and interconnect\[cite: 9].
-
-\* \[cite\_start]\*\*The BabySoC Model:\*\* Understanding \*\*why BabySoC is a simplified model\*\* used for learning complex SoC concepts\[cite: 12].
-
-\* \[cite\_start]\*\*Functional Modelling:\*\* Learning the critical \*\*role of functional modelling\*\* \*before\* moving to the Register-Transfer Level (RTL) and physical design stages\[cite: 13].
-
-
-
-\### Deliverable:
-
-\* \[cite\_start]A 1-2 page write-up summarizing the understanding of SoC design fundamentals and explaining how BabySoC fits into this learning journey\[cite: 14].
-
-
+**[Link to Theoretical Write-up (DOC file)](Week2_Task1.docx)**
 
 ---
 
+## Part 2: Labs (Hands-on Functional Modelling)
 
+[cite_start]The lab component provided hands-on practice with the **VSDBabySoC Project** [cite: 6] to execute functional modelling and verify the design's behavior.
 
-\## Part 2: Labs (Hands-on Functional Modelling)
+### Tools Used:
+* [cite_start]**Icarus Verilog (`iverilog`)**: Used for compiling the Verilog code[cite: 9, 10, 17].
+* [cite_start]**GTKWave**: Used for viewing simulation waveforms[cite: 11, 12, 22].
 
+### Simulation Steps and Analysis Focus:
+1.  [cite_start]**Project Setup:** Clone the BabySoC project repository[cite: 15].
+2.  [cite_start]**Compilation:** Compile the BabySoC Verilog modules using `iverilog`[cite: 17].
+3.  [cite_start]**Simulation:** Run the simulation to generate the `.vcd` waveform files[cite: 19, 21].
+4.  [cite_start]**Waveform Analysis:** Open the `.vcd` files in GTKWave and analyze[cite: 22]:
+    * [cite_start]**Reset operation** [cite: 23]
+    * [cite_start]**Clocking** [cite: 24]
+    * [cite_start]**Dataflow** between modules [cite: 25]
 
+---
 
-\[cite\_start]The lab component provided hands-on practice with the \*\*VSDBabySoC Project\*\* to execute functional modelling\[cite: 19, 20].
+## Deliverables & Documentation
 
+### Simulation Logs
+Provide the output logs from the compilation and simulation steps here.
 
+****
 
-\### Tools Used:
+### GTKWave Waveform Analysis
 
-\* \[cite\_start]\*\*Icarus Verilog (`iverilog`)\*\*: Used for compiling the Verilog code\[cite: 24].
+The following screenshots and analysis confirm the functional correctness of the BabySoC data path in the pre-synthesis simulation environment.
 
-\* \[cite\_start]\*\*GTKWave\*\*: Used for viewing and analyzing the simulation waveforms\[cite: 26].
+**Waveform 1: Reset, Clocking, and DAC Output**
+![GTKWave Waveform Analysis of BabySoC](waveform.jpeg)
 
+**Explanation:** This waveform demonstrates the initial functional behavior of the BabySoC, confirming synchronization and the digital-to-analog data path.
 
+* [cite_start]**Clock (`CLK`)**: Shows a stable, periodic square wave, confirming the clock generation by the PLL module (`pll`) is successful, which is required to synchronize the core and the overall system[cite: 24].
+* [cite_start]**Reset (`reset`)**: The signal is observed transitioning from its asserted state (low) to its de-asserted state (high), allowing the synchronous logic to begin operation[cite: 23].
+* **Digital Data (`RV_TO_DAC[9:0]`)**: This 10-bit bus represents the digital output from the RISC-V core. The data is observed changing to a specific value (e.g., `2E5`), which is synchronized with the clock. [cite_start]This confirms the data flow from the core to the DAC input is working[cite: 25].
+* **Analog Output (`OUT`)**: This is the real-valued analog signal generated by the DAC. The smooth, periodic, step-wise curve confirms that the DAC successfully converts the digital values from the core into an analog output, verifying the entire functional chain (Core $\rightarrow$ Data Bus $\rightarrow$ DAC) is operational.
 
-\### Key Steps and Analysis:
+**Waveform 2: Dataflow (Processor to DAC)**
+* **Explanation:** This screenshot isolates a brief period to show the precise timing relationship between the **digital data bus (`RV_TO_DAC`)** changing its value (e.g., on the clock's positive edge) and the resulting change in the **Analog Output (`OUT`)** waveform. This verifies that the DAC module is continuously and correctly converting the latest data provided by the core.
 
-1\.  \[cite\_start]Clone the BabySoC project repository\[cite: 29].
+****
 
-2\.  \[cite\_start]Compile the BabySoC Verilog modules using `iverilog`\[cite: 31].
+**Waveform 3: PLL Control Signals**
+* **Explanation:** This screenshot displays the control signals for the PLL module (`avsdpll`). The signals, such as **`ENb_CP`** (Charge Pump Enable) and **`ENb_VCO`** (VCO Enable), are shown in their stabilized, operational state (typically held high or low) after system initialization. This confirms the PLL has achieved a stable lock, ensuring the **`CLK`** signal supplied to the RISC-V core is reliable.
 
-3\.  \[cite\_start]Simulate the design to generate `.vcd` waveform files\[cite: 33, 35].
-
-4\.  \[cite\_start]Open the `.vcd` files in \*\*GTKWave\*\* and analyze the following aspects of the BabySoC's behavior\[cite: 36]:
-
-&nbsp;   \* \[cite\_start]\*\*Reset operation\*\* \[cite: 37]
-
-&nbsp;   \* \[cite\_start]\*\*Clocking\*\* \[cite: 38]
-
-&nbsp;   \* \[cite\_start]\*\*Dataflow\*\* between different modules \[cite: 39]
-
-
-
-\### Deliverables:
-
-\* \[cite\_start]Simulation logs\[cite: 42].
-
-\* \[cite\_start]\*\*GTKWave screenshots\*\* highlighting the correct functional behavior of the BabySoC\[cite: 43].
-
-\* \[cite\_start]A short explanation accompanying each screenshot detailing what the displayed waveform represents\[cite: 44, 40].
-
-```
-
+****
