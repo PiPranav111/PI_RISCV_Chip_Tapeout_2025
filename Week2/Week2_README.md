@@ -1,7 +1,7 @@
 # Week 2: BabySoC Fundamentals & Functional Modelling
 
 ## Objective
-[cite_start]The core objective for Week 2 was twofold: to establish a solid theoretical understanding of **System-on-Chip (SoC)** fundamentals [cite: 33, 34, 1, 3] [cite_start]and to gain practical experience in **functional modelling** of the **BabySoC** using simulation tools (Icarus Verilog & GTKWave)[cite: 34, 4, 9, 12].
+``[cite_start]The core objective for Week 2 was twofold: to establish a solid theoretical understanding of **System-on-Chip (SoC)** fundamentals [cite: 33, 34, 1, 3] [cite_start]and to gain practical experience in **functional modelling** of the **BabySoC** using simulation tools (Icarus Verilog & GTKWave)[cite: 34, 4, 9, 12].
 
 [cite_start]By the end of the week, the goal was to be able to explain SoC theory and demonstrate the BabySoC's correct functional behavior through simulation waveforms[cite: 31].
 
